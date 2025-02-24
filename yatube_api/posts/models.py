@@ -3,10 +3,12 @@ from django.db import models
 
 User = get_user_model()
 
+
 class Group(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     description = models.TextField()
+
 
 class Post(models.Model):
     text = models.TextField()
@@ -50,6 +52,7 @@ class Comment(models.Model):
         auto_now_add=True,
         db_index=True
     )
+
 
 class Follow(models.Model):
     user = models.ForeignKey(
